@@ -2,7 +2,7 @@
 
    <img alt="MIT" src="https://img.shields.io/badge/license-MIT-green">
   <img alt="docker build" src="https://img.shields.io/badge/docker%20build-passing-brightgreen">
-  
+
 
 一个简单的物联网项目:cyclone:
 
@@ -31,17 +31,17 @@ esp8266（NodeMCU 1.0）：负责与服务端进行websocket通信
 
 - **前端实现**：Vue3 + TypeScript + Vite
 - **后端实现**：Golang + gin + gorm +mysql
-- **硬件实现**：Aeduino IDE、C++
+- **硬件实现**：Arduino IDE、C++
 - **通信协议**：Websocket、http
 
 ## 使用指南
 
 1. Arduino IDE烧录硬件代码
 2. docker部署前后端服务
-3. 打开wifi，esp8266显示连接成功
+3. 打开WIFI，esp8266显示连接成功
 4. [可以开始测温打卡啦](http://175.178.162.207:9999/#/index)
 
 >**[这里有更详细的介绍](https://slidev.mp333player.com)**
 
-### License
+## License
 基于MIT开源协议，供学习参考。详细请阅读(LICENSE)
