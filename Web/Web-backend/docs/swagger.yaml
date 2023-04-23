@@ -1,0 +1,246 @@
+definitions:
+  models.AdminInfo:
+    properties:
+      name:
+        description: name
+        type: string
+      password:
+        description: password
+        type: string
+    type: object
+  models.SignUpInfo:
+    properties:
+      user_name:
+        description: 用户姓名
+        type: string
+      work_num:
+        description: 工号
+        type: string
+    type: object
+  models.UpdateFingerInfo:
+    properties:
+      update_num:
+        description: 更换指纹的序号  1or2
+        type: integer
+    type: object
+  models.UserInfo:
+    properties:
+      work_num:
+        description: 工号
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /admin/deleteUser:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      - description: signUpInfo
+        in: body
+        name: signUpInfo
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserInfo'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除用户
+      tags:
+      - 管理员
+  /admin/fingerLog:
+    get:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取指纹识别日志
+      tags:
+      - 管理员
+  /admin/login:
+    post:
+      parameters:
+      - description: 管理员登陆
+        in: body
+        name: adminInfo
+        required: true
+        schema:
+          $ref: '#/definitions/models.AdminInfo'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 管理员登陆
+      tags:
+      - 管理员
+  /admin/operateLog:
+    get:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取操作日志
+      tags:
+      - 管理员
+  /admin/signUp:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      - description: signUpInfo
+        in: body
+        name: signUpInfo
+        required: true
+        schema:
+          $ref: '#/definitions/models.SignUpInfo'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 用户注册并录入第一个指纹
+      tags:
+      - 管理员
+  /admin/tempLog:
+    get:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取温度日志
+      tags:
+      - 管理员
+  /admin/userList:
+    get:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取用户列表
+      tags:
+      - 管理员
+  /admin/userTempLog:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      - description: signUpInfo
+        in: body
+        name: signUpInfo
+        required: true
+        schema:
+          $ref: '#/definitions/models.UserInfo'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 获取用户体温记录
+      tags:
+      - 管理员
+  /user/addFinger:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 添加指纹
+      tags:
+      - 用户
+  /user/login:
+    get:
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 用户通过指纹身份
+      tags:
+      - 用户
+  /user/recordTemp:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 记录用户体温
+      tags:
+      - 用户
+  /user/updateFinger:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: token
+        required: true
+        type: string
+      - description: updateInfo
+        in: body
+        name: updateInfo
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateFingerInfo'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 更新指纹
+      tags:
+      - 用户
+swagger: "2.0"
